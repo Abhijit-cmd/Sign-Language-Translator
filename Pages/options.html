@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Language Detector - Language Selection</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 20px;
+      background-color: #121212;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: crimson;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background-color: #222;
+      padding: 50px 40px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
+      color: crimson;
+    }
+
+    .language-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .language-btn {
+      background-color: #2a2a2a;
+      color: #eee;
+      border: 2px solid #444;
+      padding: 16px 30px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      min-width: 200px;
+      transition: all 0.3s ease;
+    }
+
+    .language-btn:hover {
+      background-color: #3a3a3a;
+      border-color: crimson;
+      transform: scale(1.04);
+    }
+
+    .language-btn.selected {
+      background-color: crimson;
+      color: #fff;
+      border-color: crimson;
+      box-shadow: 0 0 12px rgba(220, 20, 60, 0.6);
+    }
+
+    .btn {
+      background-color: crimson;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover:not(:disabled) {
+      background-color: #b3002d;
+      transform: scale(1.05);
+    }
+
+    .btn:disabled {
+      background-color: #555;
+      cursor: not-allowed;
+    }
+
+    footer {
+      background-color: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 16px;
+      font-size: 14px;
+      margin-top: auto;
+    }
+
+    footer a {
+      color: crimson;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      .language-options {
+        flex-direction: column;
+      }
+
+      .language-btn, .btn {
+        width: 100%;
+        min-width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    🖐 Sign Language Detector
+  </header>
+
+  <main>
+    <div class="container">
+      <h2>Select Sign Language</h2>
+      <form action="/detect" method="POST" id="language-form">
+        <div class="language-options">
+          <button type="button" class="language-btn" data-lang="ASL">American Sign Language (ASL)</button>
+          <button type="button" class="language-btn" data-lang="Urdu">Urdu Sign Language</button>
+        </div>
+        <input type="hidden" name="language" id="selected-language" required>
+        <button type="submit" class="btn" id="submit-language" disabled>Start Detection</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Sign Language Detector | <a href="#">Privacy</a> | <a href="#">Contact</a>
+  </footer>
+
+  <script>
+    const languageBtns = document.querySelectorAll('.language-btn');
+    const submitLanguageBtn = document.getElementById('submit-language');
+    const selectedLanguageInput = document.getElementById('selected-language');
+
+    languageBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        languageBtns.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedLanguageInput.value = btn.dataset.lang;
+        submitLanguageBtn.disabled = false;
+      });
+    });
+  </script>
+</body>
+</html>

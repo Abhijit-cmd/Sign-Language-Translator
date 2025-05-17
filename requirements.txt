@@ -1,0 +1,12 @@
+tensorflow==2.13.0
+keras==2.15.0
+opencv-python
+pyttsx3
+numpy
+pillow
+mediapipe
+matplotlib
+scikit-learn
+flask
+cvzone
+pyenchant

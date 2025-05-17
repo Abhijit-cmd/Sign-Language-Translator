@@ -6,18 +6,20 @@ Built with [Python](https://www.python.org/), [TensorFlow/Keras](https://www.ten
 ---
 
 ## 📚 Table of Contents
-- [Overview](#Overview)
-- [Features](#Features)
-- [Technologies Used](#Technologies-used)
-- [Project Structure](#Project-Structure)
-- [Installation](#Installation)
-- [Usage](#Usage)
-- [Model Details](#Model-Details)
-- [Demo](#Demo)
-- [Future Work](#Future-work)
-- [Contributing](#Contributing)
-- [License](#License)
-- [Contact](#Contact)
+
+- [Overview](#-overview)
+- [Features](#-features)
+- [Technologies Used](#-technologies-used)
+- [Project Structure](#-project-structure)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Model Details](#-model-details)
+- [Demo](#-demo)
+- [Future Work](#-future-work)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
+
 
 ---
 
